@@ -1,1 +1,3 @@
-"# wtf_auto" 
+Dans le cadre de ma formation, il m'a été demandé de créer un petit jeu 2d en javascript. Pour ce jeu, que j'ai nommé WTF Auto, j'utilise du Jquery, en suivant les tuto suivants: https://openclassrooms.com/fr/courses/1631636-simplifiez-vos-developpements-javascript-avec-jquery/1635969-un-jeu-en-jquery et https://openclassrooms.com/fr/courses/1631636-simplifiez-vos-developpements-javascript-avec-jquery/1636120-tp-un-jeu-de-collecte-spatiale .
+
+Néanmoins, je vais adapté le jeu, pour que le défilement soit à l'horizontal et de gauche à droite. Il y aura plusieurs obstacles à éviter mais aussi certains obstacles à toucher pour gagner des points. Les élements du décor défileront aléatoirement, tout comme les obstacles se trouvant sur la route. Les nuages dans le ciel défileront plus lentement que le reste.
