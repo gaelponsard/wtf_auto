@@ -14,11 +14,8 @@ SCORE : <span id="info">0</span>
 
   <img id="fond1" class="fond" src="assets/route.png">
 
-  <img id="fond2" class="fond" src="assets/route.png">
-
   <img id="vr" src="assets/vb.png">
 
-  <img id="vb" src="assets/vr.png">
 
 </div>
 
