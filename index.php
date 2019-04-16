@@ -27,6 +27,8 @@
     <img id="vb" src="assets/vb.png">
     <!----- emplacement de la voiture bleue ------->
 
+    <img id="mad_traffic" src="assets/mad_traffic.png">
+    <!----- emplacement de Mad Traffic ------->
 
   </div>
 
@@ -41,7 +43,7 @@
       var ok = 1;
 
       function deplace()
-
+      
       {
         $('.fond').animate({
             left: '-=544'
