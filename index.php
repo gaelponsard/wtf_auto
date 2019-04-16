@@ -1,53 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>wtf auto</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>wtf auto</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-SCORE : <span id="info">0</span>
-
-<div id="WTF Auto">
-
-  <img id="fond1" class="fond" src="assets/route.png">
-
-  <img id="vr" src="assets/vb.png">
 
 
-</div>
+  <div id="wtf_jeu">
+    <!------ emplacement du jeu sur l'éran ------->
+    <div class="info">SCORE : <span id="score">0</span></div>
+    <!----- emplacement des infos du jeu----->
 
-<audio preload="auto" id="son"><source src="beep.mp3" type="audio/mp3"><source src="beep.ogg" type="audio/ogg"></audio>
+    <img id="fond1" class="fond" src="assets/route.png">
+    <!----- portion 1 du décor----->
+    <img id="fond2" class="fond" src="assets/route.png">
+    <!----- portion 2 du décor----->
+    <img id="vb" src="assets/vb.png">
+    <!----- emplacement de la voiture bleue ------->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
 
-function deplace()
+  </div>
+
+  <audio preload="auto" id="son">
+    <source src="beep.mp3" type="audio/mp3">
+    <source src="beep.ogg" type="audio/ogg"></audio>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    $(function () {
+
+      var ok = 1;
+
+      function deplace()  
+
+      {
+        $('.fond').animate({
+            left: '-=360'
+          }, 1000,
+          'linear',
+          function () {
+
+            $('.fond').css('left', 0);
+
+            deplace();
+
+          });
+
+      };
+
+      $(document).keydown(function (e) {
+
+if (e.which == 39)
 
 {
 
-  $('.fond').animate({
+    vjX = parseInt($('#vj').css('left'));
 
-    right: '-=360'
+    if (vjX < 280)
 
-  },
-
-  1000,
-
-  'linear',
-
-  function(){
-
-    $('.fond').css('right', 0);
-
-    deplace();
-
-  });
+        $('#vj').css('left', vjX + 30);
 
 }
 
-  <script>
+if (e.which == 37)
+
+{
+
+    vjX = parseInt($('#vj').css('left'));
+
+    if (vjX > 70)
+
+        $('#vj').css('left', vjX - 30);
+
+}
+
+});
+      deplace();
+    });
+  </script>
 </body>
+
 </html>

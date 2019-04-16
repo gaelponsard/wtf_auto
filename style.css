@@ -1,35 +1,59 @@
-#jeu{
+/* /////////////////////////////////////////
+//////////// styles du jeu /////////////
+///////////////////////////////////////////*/
 
-    width: 1280px;
+#wtf_jeu {
+  margin: auto;
 
-    height: 720px;
+  width: 920px;
 
-    border: 2px black solid;
+  height: 720px;
 
-    overflow: hidden;
+  border: 2px black solid;
 
-    position: relative;
+  overflow: hidden;
 
-  }
+  position: relative;
 
-  .fond{
+}
 
-    margin-bottom:-5px; 
 
-    z-index: 10;
+/* ///////////////////////////////////////////
+//////////// styles de la ligne info /////////////
+///////////////////////////////////////////*/
+.info {
+  background-color: black;
+  color: white
+}
 
-    position: relative;
+/* ///////////////////////////////////////////
+//////////// styles du décor /////////////
+///////////////////////////////////////////*/
+.fond {
 
-  }
+  margin-bottom: -5px;
 
-  #vr{
+  z-index: 10;
 
-    z-index: 100; 
+  position: relative;
 
-    position: absolute; 
+}
 
-    top: 400px; 
+/* ///////////////////////////////////////////////////////////////
+//////////// styles de la voiture bleue //////////////////////////
+////////////////////////////////////////////////////////////////*/
+#vb {
 
-    left: 48px;
+  z-index: 100;
 
-  }
+  position: absolute;
+
+  width:300px;
+
+  height: auto;
+
+  top: 400px;
+
+  left: 48px;
+
+}
