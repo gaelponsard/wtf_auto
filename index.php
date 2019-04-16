@@ -43,8 +43,23 @@
       var ok = 1;
 
       function deplace()
-      
+
       {
+        $('#mad_traffic').animate({
+          left: '-=544'
+        }, 1000, 'linear', function () {
+
+          var mad_trafficX = 100;
+
+          var mad_trafficY = Math.floor(Math.random() * 194) + 870;
+
+          $('#mad_traffic').css('top',mad_trafficY);
+
+          $('#mad_traffic').css('left',mad_trafficX);
+
+          ok = 1;
+
+        });
         $('.fond').animate({
             left: '-=544'
           }, 1000,
