@@ -14,13 +14,16 @@
 
   <div id="wtf_jeu">
     <!------ emplacement du jeu sur l'éran ------->
+
     <div class="info">SCORE : <span id="score">0</span></div>
     <!----- emplacement des infos du jeu----->
 
     <img id="fond1" class="fond" src="assets/route.png">
     <!----- portion 1 du décor----->
+
     <img id="fond2" class="fond" src="assets/route.png">
     <!----- portion 2 du décor----->
+
     <img id="vb" src="assets/vb.png">
     <!----- emplacement de la voiture bleue ------->
 
@@ -41,7 +44,7 @@
 
       {
         $('.fond').animate({
-            left: '-=360'
+            left: '-=544'
           }, 1000,
           'linear',
           function () {
@@ -60,11 +63,11 @@
 
         {
 
-          vjX = parseInt($('#vb').css('top'));
+          vbY = parseInt($('#vb').css('top'));
 
-          if (vbY < 70)
+          if (vbY < 550)
 
-            $('#vb').css('top', vbY + 30);
+            $('#vb').css('top', vbY + 20);
 
         }
 
@@ -74,9 +77,9 @@
 
           vbY = parseInt($('#vb').css('top'));
 
-          if (vbY > 350)
+          if (vbY > 400)
 
-            $('#vb').css('top', vbY - 30);
+            $('#vb').css('top', vbY - 20);
 
         }
 
