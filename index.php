@@ -37,7 +37,7 @@
 
       var ok = 1;
 
-      function deplace()  
+      function deplace()
 
       {
         $('.fond').animate({
@@ -56,31 +56,31 @@
 
       $(document).keydown(function (e) {
 
-if (e.which == 39)
+        if (e.which == 40)
 
-{
+        {
 
-    vjX = parseInt($('#vj').css('left'));
+          vjX = parseInt($('#vb').css('top'));
 
-    if (vjX < 280)
+          if (vbY < 70)
 
-        $('#vj').css('left', vjX + 30);
+            $('#vb').css('top', vbY + 30);
 
-}
+        }
 
-if (e.which == 37)
+        if (e.which == 38)
 
-{
+        {
 
-    vjX = parseInt($('#vj').css('left'));
+          vbY = parseInt($('#vb').css('top'));
 
-    if (vjX > 70)
+          if (vbY > 350)
 
-        $('#vj').css('left', vjX - 30);
+            $('#vb').css('top', vbY - 30);
 
-}
+        }
 
-});
+      });
       deplace();
     });
   </script>
