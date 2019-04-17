@@ -22,7 +22,8 @@
     <!----- portion 1 du décor----->
 
     <img id="fond2" class="fond" src="assets/route.png">
-    <!----- portion 2 du décor----->
+    <!----- portion 2 du décor, évite d'avoir une zone blanche 
+    lors du défilement d'image de droite à gauche ----->
 
     <img id="vb" src="assets/vb.png">
     <!----- emplacement de la voiture bleue ------->
@@ -46,23 +47,32 @@
 
       {
         $('#mad_traffic').animate({
-          left: '-=544'
-        }, 1000, 'linear', function () {
+  /*********** l'objet se déplace sur une largeur total de 1380px
+  (1280px=largeur du fond, right:-100px = emplacement de l'objet)
+  en 4059 millisecondes ****************************************/
+          left: '-=1380' 
+        }, 4059, 'linear', function () {
 
-          var mad_trafficX = 100;
+          var mad_trafficX = 1280;
+          /* l'objet apparaît sur l'ordonnée horizontale de 1280px */
 
-          var mad_trafficY = Math.floor(Math.random() * 194) + 870;
+          var mad_trafficY = Math.floor(Math.random() * 160) + 400; 
+          /* l'ordonnée verticale est choisie aléatoirement entre 400px et 160px*/
 
-          $('#mad_traffic').css('top',mad_trafficY);
+          $('#mad_traffic').css('top', mad_trafficY);
+          /* l'ordonnée Y démarre en haut*/
 
-          $('#mad_traffic').css('left',mad_trafficX);
+          $('#mad_traffic').css('left', mad_trafficX); 
+          /* l'ordonnée X démarre à gauche*/
 
           ok = 1;
 
         });
         $('.fond').animate({
             left: '-=544'
-          }, 1000,
+  /*** le fond se déplace sur une largeur total de 544px vers la gauche
+  (deux images sont utilisées pour éviter une zone blanche ***/          
+          }, 1600,
           'linear',
           function () {
 
