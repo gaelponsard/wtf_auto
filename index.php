@@ -28,7 +28,7 @@
     <img id="vb" src="assets/vb.png">
     <!----- emplacement de la voiture bleue ------->
 
-    <img id="mad_traffic" src="assets/mad_traffic.png">
+    <img id="mt" src="assets/mt.png">
     <!----- emplacement de Mad Traffic ------->
 
   </div>
@@ -46,23 +46,23 @@
       function deplace()
 
       {
-        $('#mad_traffic').animate({
+        $('#mt').animate({
           /*********** l'objet se déplace sur une largeur total de 1380px
           (1280px=largeur du fond, right:-100px = emplacement de l'objet)
           en 4059 millisecondes ****************************************/
           left: '-=1380'
         }, 4059, 'linear', function () {
 
-          var mad_trafficX = 1280;
+          var mtX = 1280;
           /* l'objet apparaît sur l'ordonnée horizontale de 1280px */
 
-          var mad_trafficY = Math.floor(Math.random() * 160) + 400;
+          var mtY = Math.floor(Math.random() * 160) + 400;
           /* l'ordonnée verticale est choisie aléatoirement entre 400px et 160px*/
 
-          $('#mad_traffic').css('top', mad_trafficY);
+          $('#mt').css('top', mtY);
           /* l'ordonnée Y démarre en haut*/
 
-          $('#mad_traffic').css('left', mad_trafficX);
+          $('#mt').css('left', mtX);
           /* l'ordonnée X démarre à gauche*/
 
           ok = 1;
@@ -118,27 +118,30 @@
       function collision()
 
       {
+        /*** les 4 lignes ci-dessous placent les coordonnées des objets dans des variables.
+        La fonction parseInt() permet de lire et de mémoriser les coordonnées sous une forme entière ***/
+        vbX = 10;
+        vbY = parseInt($('#vb').css('top'));
 
-        vbX = parseInt($('#vb').css('left'));
+        vmtX = parseInt($('#vmt').css('left'));
+        vmtY = parseInt($('#vmt').css('top'));
 
-        vmad_trafficX = parseInt($('#vmad_traffic').css('left'));
 
-        vbY = 10;
 
-        vmad_trafficY = parseInt($('#vmad_traffic').css('top'));
+        /*** Si une collision se trouve dans la fourchette autorisée...***/
+        if (((vmtX > vbX) && (vmtX < (vbX + 150)) && (vmtY > vbY) && (vmtY < (
+            vbY + 66)) && (ok == 1)) ||
+          ((vbX > vmtX) && (vbX < (vmtX + 150)) && (vmtY > vbY) && (vmtY < (vbY +
+            66)) && (ok == 1)))
 
-        if (((vmad_trafficX > vbX) && (vmad_trafficX < (vbX + 66)) && (vmad_trafficY > vbY) && (vmad_trafficY < (vbY + 150)) && (ok == 1))
-
-          ||
-          ((vbX > vmad_trafficX) && (vbX < (vmad_trafficX + 66)) && (vmad_trafficY > vbY) && (vmad_trafficY < (vbY + 150)) && (ok == 1)))
-
+        /*** alors 1 sera acrémenté à #score et #son activera la lecture ***/
         {
 
           $('#son')[0].play();
 
-          collision = parseInt($('#info').text()) + 1;
+          collision = parseInt($('#score').text()) + 1;
 
-          $('#info').text(collision);
+          $('#score').text(collision);
 
           ok = 0;
 
@@ -150,7 +153,7 @@
 
       setInterval(collision, 20);
 
-      
+
     });
   </script>
 </body>
