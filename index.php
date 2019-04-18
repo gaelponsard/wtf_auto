@@ -31,6 +31,12 @@
     <img id="mt" src="assets/mt.png">
     <!----- emplacement de Mad Traffic ------->
 
+    <img id="house_1" src="assets/house_1.png">
+    <!----- emplacement de la 1ere maison ------->
+
+    <img id="lights" src="assets/lights.png">
+    <!----- emplacement du réverbère ------->
+
   </div>
 
   <audio preload="auto" id="son">
@@ -43,7 +49,7 @@
 
       var ok = 1;
 
-      function deplace()
+      /*function deplace()*/
 
       {
         $('#mt').animate({
