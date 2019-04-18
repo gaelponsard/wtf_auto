@@ -11,31 +11,37 @@
 
 <body>
 
-
+  <!------ emplacement du jeu sur l'éran ------->
   <div id="wtf_jeu">
-    <!------ emplacement du jeu sur l'éran ------->
 
-    <div class="info">SCORE : <span id="score">0</span></div>
     <!----- emplacement des infos du jeu----->
+    <div class="info">SCORE : <span id="score">0</span></div>
 
-    <img id="fond1" class="fond" src="assets/route.png">
     <!----- portion 1 du décor----->
+    <img id="fond1" class="fond" src="assets/route.png">
 
-    <img id="fond2" class="fond" src="assets/route.png">
     <!----- portion 2 du décor, évite d'avoir une zone blanche 
     lors du défilement d'image de droite à gauche ----->
+    <img id="fond2" class="fond" src="assets/route.png">
 
-    <img id="vb" src="assets/vb.png">
     <!----- emplacement de la voiture bleue ------->
+    <img id="vb" src="assets/vb.png">
 
-    <img id="mt" src="assets/mt.png">
     <!----- emplacement de Mad Traffic ------->
+    <img id="mt" src="assets/mt.png">
 
-    <img id="house_1" src="assets/house_1.png">
     <!----- emplacement de la 1ere maison ------->
+    <img id="house_1" src="assets/house_1.png">
 
-    <img id="lights" src="assets/lights.png">
     <!----- emplacement du réverbère ------->
+    <img id="lights" src="assets/lights.png">
+
+    <!----- emplacement du nuage ------->
+    <img id="cloud" src="assets/cloud.png">
+
+    <!----- emplacement du supporter ------->
+    <img id="supporter" src="assets/supporter.gif">
+
 
   </div>
 
@@ -49,49 +55,164 @@
 
       var ok = 1;
 
-      /*function deplace()*/
+      function deplace() {
 
-      {
+        /******************* ANIMATION DU DECOR ***********************/
+        $('.fond').animate({
+
+          /*** le fond se déplace sur une largeur total de 544px vers la gauche
+          en 1600 millisecondes.
+          (deux images sont utilisées pour éviter une zone blanche ***/
+          left: '-=544'
+        }, 1600, 'linear', function () {
+
+          $('.fond').css('left', 0);
+
+          deplace();
+
+        });
+
+        /******************* ANIMATION DE MAD TRAFFIC (le feu tricolore)********************/
         $('#mt').animate({
-          /*********** l'objet se déplace sur une largeur total de 1380px
+
+          /*l'objet se déplace sur une largeur total de 1380px
           (1280px=largeur du fond, right:-100px = emplacement de l'objet)
-          en 4059 millisecondes ****************************************/
+          en 2559 millisecondes ****************************************/
           left: '-=1380'
-        }, 4059, 'linear', function () {
+        }, 2559, 'linear', function () {
 
+          /* l'objet apparaît sur l'ordonnée horizontale pendant 1280px */
           var mtX = 1280;
-          /* l'objet apparaît sur l'ordonnée horizontale de 1280px */
 
+          /* sur l'ordonnée verticale l'objet est placé aléatoirement entre 400px et 160px*/
           var mtY = Math.floor(Math.random() * 160) + 400;
-          /* l'ordonnée verticale est choisie aléatoirement entre 400px et 160px*/
 
+          /* coordonnée Y de Mad traffic */
           $('#mt').css('top', mtY);
-          /* l'ordonnée Y démarre en haut*/
 
+          /* coordonnée X de Mad Traffic */
           $('#mt').css('left', mtX);
-          /* l'ordonnée X démarre à gauche*/
+
 
           ok = 1;
 
-        });
-        $('.fond').animate({
-            left: '-=544'
-            /*** le fond se déplace sur une largeur total de 544px vers la gauche
-            en 1600 millisecondes.
-            (deux images sont utilisées pour éviter une zone blanche ***/
-          }, 1600,
-          'linear',
-          function () {
+          });
 
-            $('.fond').css('left', 0);
 
-            deplace();
+
+
+
+        /*************************** ANIMATION DE LA MAISON ************************/
+        $('#house_1').animate({
+                  
+          /*l'objet se déplace sur une largeur total de 1480px
+          (1280px=largeur du fond + 200px = largeur de l'objet)
+          en 5559 millisecondes ****************************************/
+          left: '-=1480'
+        }, 5559, 'linear', function () {
+
+          /* l'objet apparaît sur l'ordonnée horizontale pendant 1280px */
+          var house_1X = 1280;
+
+          /* l'objet apparaît sur l'ordonnée verticale à un top de 245px */
+          var house_1Y = 245;
+
+          /* coordonnée Y de la maison */
+          $('#house_1').css('top', house_1Y);
+
+          /* coordonnée X de la maison */
+          $('#house_1').css('left', house_1X);
+
+
+          ok = 1;
 
           });
 
+
+
+        /*************************** ANIMATION DU REVERBERE ************************/
+        $('#lights').animate({
+                  
+          /*l'objet se déplace sur une largeur total de 1480px
+          (1280px=largeur du fond + 200px = largeur de l'objet)
+          en 4408 millisecondes ****************************************/
+          left: '-=1480'
+        }, 4408, 'linear', function () {
+        
+          /* l'objet apparaît sur l'ordonnée horizontale pendant 1280px */
+          var lightsX = 1280;
+        
+          /* l'objet apparaît sur l'ordonnée verticale à un top de 255px */
+          var lightsY = 255;
+        
+          /* coordonnée Y du réverbère */
+          $('#lights').css('top', lightsY);
+        
+          /* coordonnée X du réverbère */
+          $('#lights').css('left', lightsX);
+        
+        
+          ok = 1;
+        
+          });
+
+
+        /*************************** ANIMATION DU NUAGE ************************/
+        $('#cloud').animate({
+                  
+          /*l'objet se déplace sur une largeur total de 1480px
+          (1280px=largeur du fond + 200px = largeur de l'objet)
+          en 30000 millisecondes ****************************************/
+          left: '-=1480'
+        }, 30000, 'linear', function () {
+                
+          /* l'objet apparaît sur l'ordonnée horizontale pendant 1280px */
+          var cloudX = 1280;
+                
+          /* l'objet apparaît sur l'ordonnée verticale à un top de 255px */
+          var cloudY = 50;
+                
+          /* coordonnée Y du réverbère */
+          $('#cloud').css('top', cloudY);
+                
+          /* coordonnée X du réverbère */
+          $('#cloud').css('left', cloudX);
+                
+                
+          ok = 1;
+                
+          });
+
+
+        /*************************** ANIMATION DU SUPPORTER ************************/
+        $('#supporter').animate({
+                  
+          /*l'objet se déplace sur une largeur total de 1480px
+          (1280px=largeur du fond + 200px = largeur de l'objet)
+          en 4408 millisecondes ****************************************/
+          left: '-=1480'
+        }, 4108, 'linear', function () {
+                
+          /* l'objet apparaît sur l'ordonnée horizontale pendant 1280px */
+          var supporterX = 1280;
+                
+          /* l'objet apparaît sur l'ordonnée verticale à un top de 255px */
+          var supporterY = 362;
+                
+          /* coordonnée Y du réverbère */
+          $('#supporter').css('top', supporterY);
+                
+          /* coordonnée X du réverbère */
+          $('#supporter').css('left', supporterX);
+                
+                
+          ok = 1;
+                
+          });     
+
       };
 
-      /*************** déplacement de la voiture *******************/
+      /*************************** ANIMATION DE LA VOITURE ************************/
       $(document).keydown(function (e) {
 
         if (e.which == 40)
@@ -120,7 +241,7 @@
 
       });
 
-      /*********** gestion des collisions**************/
+      /******************************* GESTION DES COLLISIONS *****************************/
       function collision()
 
       {
