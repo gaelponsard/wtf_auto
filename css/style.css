@@ -44,7 +44,7 @@
 ////////////////////////////////////////////////////////////////*/
 #vb {
 
-  z-index: 100;
+  z-index: 90;
 
   position: absolute;
 
@@ -60,12 +60,12 @@
 
 
 /* ///////////////////////////////////////////////////////////////
-//////////// styles de Mad Traffic //////////////////////////
+////styles de Mad Traffic: 2 versions avec un z-index différent///
 ////////////////////////////////////////////////////////////////*/
 
 #mt{
 
-  z-index: 80; 
+  z-index: 80; /*** z-index inferieur à celui de la voiture ***/
 
   position: absolute;
 
@@ -74,6 +74,22 @@
   height: auto;
 
   top: 400px; 
+
+  right: -100px;
+
+}
+
+#mt2{
+
+  z-index: 100; /*** z-index superieur à celui de la voiture ***/
+
+  position: absolute;
+
+  width:150px;
+
+  height: auto;
+
+  top: 500px; 
 
   right: -100px;
 
